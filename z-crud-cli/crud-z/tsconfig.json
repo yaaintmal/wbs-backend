@@ -1,0 +1,8 @@
+// tsconfig.json (new base file)
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.web.json" },
+    { "path": "./tsconfig.cli.json" }
+  ]
+}

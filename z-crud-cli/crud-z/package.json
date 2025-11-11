@@ -1,0 +1,25 @@
+{
+  "name": "crud-z",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build:web": "tsc && vite build",
+    "preview": "vite preview",
+    "cli": "node --require dotenv/config node_modules/ts-node/dist/bin.js --transpileOnly src/app.ts",
+    "build:cli": "tsc --project tsconfig.cli.json"
+  },
+  "devDependencies": {
+    "@types/mongodb": "^4.0.6",
+    "@types/node": "^24.9.1",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.9.3",
+    "vite": "^7.1.7",
+    "dotenv": "^16.4.5"
+  },
+  "dependencies": {
+    "commander": "^14.0.1",
+    "mongodb": "^6.20.0"
+  }
+}

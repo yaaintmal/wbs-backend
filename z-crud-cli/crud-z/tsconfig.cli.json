@@ -1,0 +1,23 @@
+// tsconfig.cli.json
+{
+  "extends": "./tsconfig.web.json", // Inherit base options
+  "compilerOptions": {
+    // --- Core Node.js Configuration ---
+    "module": "NodeNext",          // Use modern Node.js module resolution
+    "moduleResolution": "NodeNext",
+    "target": "ES2022",            // Target a modern Node.js version
+    "lib": ["ES2022"],             // Only include ES libraries (no DOM)
+    "types": ["node"],             // Specifically include Node.js types
+    
+    // --- Output Configuration ---
+    "noEmit": false,               // Crucial: Must emit JavaScript for the final build
+    "outDir": "dist/cli",          // Output compiled JS files here
+    "rootDir": "src",
+    
+    /* Linting adjustments */
+    "erasableSyntaxOnly": false,   // Since we are compiling, we need full TS support
+    "noUncheckedSideEffectImports": false
+  },
+  "include": ["src/app.ts", "src/db.ts", "src/commands/**/*"],
+  "exclude": ["src/main.ts", "src/assets/**/*"] // Exclude web-specific files
+}
