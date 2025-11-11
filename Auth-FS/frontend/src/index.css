@@ -1,0 +1,21 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  /* themes: bumblebee --default  */
+  /* black is beautiful */
+  themes: black --default;
+  /* dark --prefersdark; */
+}
+@layer base {
+  /* Styling struggles with password manager */
+  input[data-com-onepassword-filled] {
+    background-clip: text;
+  }
+}
+
+.label-two {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin: 5px;
+  font-size: smaller;
+}
