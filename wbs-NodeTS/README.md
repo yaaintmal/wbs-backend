@@ -1,86 +1,70 @@
-# WBS Node.js TypeScript Backend Scaffold
+# wbs-node-ts-gemini
 
-A modern, production-ready scaffold for Node.js backend projects using TypeScript with ES modules support.
+This project is a Node.js and TypeScript template demonstrating how to interact with the Google Gemini API using both the REST API and the official SDK. It also includes examples for other providers like OpenAI and Anthropic.
 
-## 🚀 Quick Start
+## Features
 
-### Setup
+-   **Gemini API Interaction**: Examples for both REST and SDK.
+-   **Structured Responses**: Shows how to get structured JSON responses from the Gemini API.
+-   **Provider-based CLI**: The main application allows you to choose a provider (e.g., `google`, `openai`, `anthropic`) and a prompt from the command line.
+-   **TypeScript**: The project is written in TypeScript, providing type safety and better developer experience.
+
+## Getting Started
+
+### Prerequisites
+
+-   Node.js (v18 or higher)
+-   npm
+-   A Google Gemini API key.
+
+### Installation
+
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/your-username/wbs-node-ts-gemini.git
+    cd wbs-node-ts-gemini
+    ```
+2.  Install the dependencies:
+    ```bash
+    npm install
+    ```
+3.  Create a `.env` file in the root of the project and add your Gemini API key:
+    ```
+    GEMINI_API_KEY=your_api_key_here
+    ```
+
+## Usage
+
+You can run the application using the `npm run dev` script, which uses `ts-node` to execute the TypeScript files directly. You need to provide a provider and a prompt as arguments.
+
+### Run with Google Gemini
 
 ```bash
-# Clone the template repository
-git clone https://github.com/WebDev-WBSCodingSchool/wbs-node-ts-template.git your-project-name
-
-# Navigate to your project
-cd your-project-name
-
-# Remove the existing git history and reinitialize
-rm -rf .git
-git init
-
-# Install dependencies
-npm install
-
-# Start development
-npm run dev
+npm run dev -- google "What is the capital of Germany?"
 ```
 
-## 📁 Project Structure
+This will output the responses from both the REST API and the SDK.
 
-```bash
+### Other Providers
+
+The project is structured to easily add and use other providers. You can extend it by adding new files for other providers and updating the `app.ts` file.
+
+## Project Structure
+
+```
 .
-├── package-lock.json   # Dependency lock file (auto-generated)
-├── package.json        # Project configuration and dependencies
-├── README.md          # This file
 ├── src
-│   └── app.ts          # Application entry point
-└── tsconfig.json       # TypeScript configuration
+│   ├── app.ts                  # Main application entry point
+│   ├── gemini-rest.ts          # Gemini REST API example
+│   └── gemini-sdk-structured.ts # Gemini SDK example with structured output
+├── package.json
+├── tsconfig.json
+└── .env.example
 ```
 
-> **Note**: The `dist/` directory will be created automatically when you run `npm run build` to contain the compiled JavaScript output.
+## Dependencies
 
-## 🛠 Available Scripts
-
-| Command            | Description                                                |
-| ------------------ | ---------------------------------------------------------- |
-| `npm run dev`      | Start development server with file watching and hot reload |
-| `npm run build`    | Compile TypeScript to JavaScript                           |
-| `npm run start`    | Build and run the production version                       |
-| `npm run prebuild` | Clean the dist directory (runs automatically before build) |
-| `npm run prestart` | Build the project (runs automatically before start)        |
-
-## 🔧 Features
-
-### Modern TypeScript Configuration
-
-- **ES2022** target with modern JavaScript features
-- **Strict mode** enabled for better type safety
-- **ES Modules** support (native Node.js ESM)
-- **Path aliases** with `#` prefix to avoid conflicts
-- **Import extensions** support for better IDE experience
-
-### Development Experience
-
-- **File watching** with `--watch` flag for instant reloads
-- **TypeScript** compilation with proper module resolution
-- **Clean builds** with automatic dist cleanup
-- **Isolated modules** for better compilation performance
-
-### Path Aliases
-
-The project supports internal path aliases using the `#` prefix:
-
-```typescript
-// Instead of relative imports like this:
-import { helper } from '../../../utils';
-
-// You can use clean aliases like this:
-import { helper } from '#utils';
-```
-
-You need to add additional modules subpaths to the `imports` field in `package.json`
-
-## 📦 Dependencies
-
-### Runtime Dependencies
-
-- None (pure Node.js setup ready for your additions)
+-   `@google/genai`: The official Google GenAI SDK for Node.js.
+-   `zod`: A TypeScript-first schema declaration and validation library.
+-   `typescript`: The TypeScript compiler.
+-   `@types/node`: Type definitions for Node.js.
